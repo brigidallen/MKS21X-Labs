@@ -14,9 +14,19 @@ public class Animal {
     //accessor
     return name;
   }
+  public String getNoise(){
+    return noise;
+  }
+  public int getAge(){
+    return age;
+  }
   public void speak(){
     System.out.println("My name is " + getName());
-    System.out.println("I am " + age + "years old");
+    System.out.println("I am " + age + " years old");
     System.out.println("I say " + noise);
+  }
+  public static void main(String[] args) {
+    Animal berry = new Animal("eek", 12, "Berry");
+    berry.speak();
   }
 }
