@@ -1,0 +1,56 @@
+Brigid Allen
+No partner :( Can i get double credit for this one :)
+
+public class Animal {
+  private String noise;
+  private int age;
+  private String name;
+
+  public Animal(String noise, int age, String name){
+    //initialize the values (hint use this.varname to clarify)
+    this.noise = noise;
+    this.age = age;
+    this.name = name;
+  }
+
+  public String getName() {
+    //accessor
+    return name;
+  }
+  public String getNoise(){
+    return noise;
+  }
+  public int getAge(){
+    return age;
+  }
+  public void speak(){
+    System.out.println("My name is " + getName());
+    System.out.println("I am " + age + " years old");
+    System.out.println("I say " + noise);
+  }
+  public static void main(String[] args) {
+    Animal berry = new Animal("eek", 12, "Berry");
+    berry.speak();
+  }
+}
+public class Bird extends Animal{
+  public double height;
+  public String color;
+
+  public Bird(String noise, int age, String name, double height, String color){
+    super(noise, age, name);
+    this.height = height;
+    this.color = color;
+  }
+  public void speak(){
+    super.speak();
+    System.out.println("I am " + color);
+    System.out.println("I am " + height + " inches tall");
+  }
+  public static void main(String[] args) {
+    Bird cuckoo = new Bird("oog", 3, "Cuckoo", 73.4, "brown");
+    cuckoo.speak();
+  }
+}
+
+Accidentally compelted classwork at home, thought we were supposed to. The examples from class that helped were how triangle extended point and carried its properties.

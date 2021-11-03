@@ -10,44 +10,45 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber(int nume, int deno){
     super(0.0);//this value is ignored!
+    numerator = nume;
+    if(deno != 0){
+      denominator = deno;
+    } else {
+      numerator = 0;
+      denominator = 1;
+    }
   }
 
   public double getValue(){
-    return 0.0;
+    return numerator / denominator;
   }
 
-  /**
-  *@return the numerator
-  */
   public int getNumerator(){
-    return 0;
+    return numerator;
   }
-  /**
-  *@return the denominator
-  */
+
   public int getDenominator(){
-    return 0;
+    return denominator;
   }
   /**
   *@return a new RationalNumber that has the same numerator
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return null;
+    RationalNumber hi = new RationalNumber(denominator, numerator);
+    return hi;
   }
-  /**
-  *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
-  */
+
   public boolean equals(RationalNumber other){
-    return false;
+    if (other.getNumerator() == numerator && other.getDenominator() == denominator){
+      return true;
+    } else {
+      return false;
+    }
   }
 
-
-  /**
-  *@return the value expressed as "3/4" or "8/3"
-  */
   public String toString(){
-    return "0";
+    return numerator + "/" + denominator;
   }
 
   /**Calculate the GCD of two integers.
@@ -55,10 +56,19 @@ public class RationalNumber extends RealNumber
   *@param b the second integer
   *@return the value of the GCD
   */
-  private static int gcd(int a, int b){
+  public static int gcd(int a, int b){
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    int c = 0;
+    if (a > b){
+      c = b;
+    } else {
+      c = a;
+    } for(int i =c; i > 0; i--){
+        if (a % i == 0 && b % i == 0){
+          return i;
+        }
+    } return 0;
   }
 
   /**
@@ -96,4 +106,4 @@ public class RationalNumber extends RealNumber
   public RationalNumber subtract(RationalNumber other){
     return null;
   }
-} 
+}
