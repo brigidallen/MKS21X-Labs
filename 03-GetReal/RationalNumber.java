@@ -60,15 +60,14 @@ public class RationalNumber extends RealNumber
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
     int c = 0;
-    if (a > b){
+    int rem = 0;
+    if (a < b){
       c = b;
-    } else {
-      c = a;
-    } for(int i =c; i > 0; i--){
-        if (a % i == 0 && b % i == 0){
-          return i;
-        }
-    } return 0;
+      b = a;
+      a = c;
+    } for(int i = b; i > 0; i--){
+      rem =
+    }
   }
 
   /**
