@@ -75,5 +75,43 @@ public class Superarray{
       }
     }
   }
-
+  public int indexOf(String target){
+      for(int i = 0; i < size; i++){
+        if(data[i] == target){
+          return i;
+        }
+      } return -1;
+    }
+    public int lastIndexOf(String target){
+      for(int i = size; i > 0; i --){
+        if(data[i] == target){
+          return i;
+        }
+      } return -1;
+    }
+    public void add(int index, String value){
+      size++;
+      for(int i = size; i > index; i--){
+        data[i] = data[i-1];
+      } data[index] = value;
+    }
+    public String remove(int index){
+      if (index < 0 || index >= size){
+        return "Error, index out of range";
+      }
+      size--;
+      String a = data[index];
+      for(int i = index; i < size; i++){
+        data[i] = data[i+1];
+      } return a;
+    }
+    public boolean remove(String target){
+      if(indexOf(target) != -1){
+        size--;
+        for (int i = indexOf(target); i < size; i++){
+          data[i] = data[i+1];
+        }
+      }
+        return false;
+    }
 }
