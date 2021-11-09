@@ -56,17 +56,19 @@ public class RationalNumber extends RealNumber
   *@param b the second integer
   *@return the value of the GCD
   */
-  public static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
+  private static int gcd(int a, int b) {
     int c = 0;
     int rem = 0;
-    if (a < b){
+    if (a < b) {
       c = b;
       b = a;
       a = c;
-    } for(int i = b; i > 0; i--){
-      rem =
+    }
+      rem = a % b;
+    if (rem == 0) {
+      return b;
+    } else {
+      return gcd(b, rem);
     }
   }
 
@@ -76,33 +78,39 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    int n = numerator;
+    int d = denominator;
+    numerator = n/gcd(n, d);
+    denominator = d/gcd(n, d);
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    RationalNumber a = ((numerator * other.numerator),(denominator * other.denominator));
+    return a;
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    return (numerator * other.denominator)/(denominator * other.numerator);
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    return ((numerator * other.denominator)/(denominator * other.denominator)).reduce() +
+      ((other.numerator * denominator)/(other.denominator * denominator)).reduce();
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    return ((numerator * other.denominator)/(denominator * other.denominator)).reduce() -
+      ((other.numerator * denominator)/(other.denominator * denominator)).reduce();;
   }
 }

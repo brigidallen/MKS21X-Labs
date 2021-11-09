@@ -63,32 +63,17 @@ public class Superarray{
       return "Error. Null value";
     }
   }
-  private void resize(){
+  public void resize(){
     int bb = data.length;
-    data1 = new String[bb*2 + 1];
+    String[] data1;
+    data1 = new String[(bb*2 + 1)];
     for (int i = 0; i < bb; i++){
-      data
+      if(data[i] != null){
+        data1[i] = data[i];
+      } else{
+        break;
+      }
     }
   }
-  public static void main(String[] args) {
-    Superarray b = new Superarray();
-    b.add("Hello");
-    b.add("Hi");
-    b.add("bye");
-    System.out.println(b);
-    System.out.println(b.size());
-    System.out.println(b.toStringDebug());
-    System.out.println(b.add("Hihihihi"));
-    System.out.println(b);
-    System.out.println(b.get(3));
-    System.out.println(b.get(4));
-    System.out.println(b.set(2, "bdjdsjdsjdsj"));
-    System.out.println(b.set(4, "Lololol"));
-    System.out.println(b);
-    System.out.println(b.get(-1));
-    System.out.println(b.set(6, "ababab"));
-    System.out.println(b);
-    Superarray a = new Superarray(20);
-    System.out.println(a.toStringDebug());
-  }
+
 }
