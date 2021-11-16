@@ -79,7 +79,7 @@ public class SuperArray{
         if(data[i] == target){
           return i;
         }
-      } return -1;
+      } return -1
     }
     public int lastIndexOf(String target){
       for(int i = size; i > 0; i --){
@@ -89,9 +89,7 @@ public class SuperArray{
       } return -1;
     }
     public void add(int index, String value){
-      if (index < 0 || index >= size){
-        return "Error";
-      } size++;
+      size++;
       for(int i = size; i > index; i--){
         data[i] = data[i-1];
       } data[index] = value;
