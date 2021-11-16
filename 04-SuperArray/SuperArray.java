@@ -17,7 +17,8 @@ public class SuperArray{
       data[size] = s;
       size ++;
       return true;
-    } return false;
+    } resize();
+    return false;
   }
   public String toString(){
     String str = "";
@@ -52,18 +53,18 @@ public class SuperArray{
   }
   public String set(int index, String element){
     if (index > size || index < 0){
-      return "Error index out of range";
+      throw new IndexOutOfBoundsException("Hello! Your index of " + index + "was out of range :(");
     }
     else if (data[index] != null){
       String ss = data[index];
       data[index] = element;
       return ss;
     } else {
-      return "Error. Null value";
+      throw new IndexOutOfBoundsException("Null value");
     }
   }
   public void resize(){
-    if (size == data.length){
+    if (size == data.length-1){
       String[] data1 = new String[size];
       for (int i = 0; i < data1.length; i++){
         data1[i] = data[i];
@@ -79,7 +80,7 @@ public class SuperArray{
         if(data[i] == target){
           return i;
         }
-      } return -1
+      } return -1;
     }
     public int lastIndexOf(String target){
       for(int i = size; i > 0; i --){
@@ -89,6 +90,9 @@ public class SuperArray{
       } return -1;
     }
     public void add(int index, String value){
+      if(size == data.length -1){
+        resize();
+      }
       size++;
       for(int i = size; i > index; i--){
         data[i] = data[i-1];
@@ -96,7 +100,7 @@ public class SuperArray{
     }
     public String remove(int index){
       if (index < 0 || index >= size){
-        return "Error, index out of range";
+        throw new IndexOutOfBoundsException("Your index " + index + " Was out of index");
       }
       size--;
       String a = data[index];
