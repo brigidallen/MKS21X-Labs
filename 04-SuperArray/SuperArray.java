@@ -6,18 +6,23 @@ public class SuperArray{
     size = 0;
   }
   public SuperArray(int initialCapacity){
+  if (initialCapacity > 0){
     data = new String[initialCapacity];
     size = 0;
+  } else {
+    throw new IllegalArgumentException("Hiiiiiiii ur index negative");
+  }
   }
   public int size(){
     return size;
   }
   public boolean add(String s){
-    if (size < data.length){
+    if (size <= data.length){
+    resize();
       data[size] = s;
       size ++;
       return true;
-    } resize();
+    } 
     return false;
   }
   public String toString(){
@@ -64,7 +69,7 @@ public class SuperArray{
     }
   }
   public void resize(){
-    if (size == data.length-1){
+    if (size == data.length){
       String[] data1 = new String[size];
       for (int i = 0; i < data1.length; i++){
         data1[i] = data[i];
@@ -77,26 +82,28 @@ public class SuperArray{
   }
   public int indexOf(String target){
       for(int i = 0; i < size; i++){
-        if(data[i] == target){
+        if(data[i].equals(target)){
           return i;
         }
       } return -1;
     }
     public int lastIndexOf(String target){
-      for(int i = size; i > 0; i --){
-        if(data[i] == target){
+      for(int i = size-1; i > 0; i --){
+        if(data[i].equals(target)){
           return i;
         }
       } return -1;
     }
     public void add(int index, String value){
-      if(size == data.length -1){
-        resize();
-      }
+    	if (index >= 0 && index <= size){
+    	resize();
       size++;
-      for(int i = size; i > index; i--){
+      for(int i = size-1; i > index; i--){
         data[i] = data[i-1];
       } data[index] = value;
+    } else {
+    throw new IndexOutOfBoundsException("Index out of range");
+    }
     }
     public String remove(int index){
       if (index < 0 || index >= size){
