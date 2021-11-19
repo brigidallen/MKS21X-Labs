@@ -14,10 +14,11 @@ public class ArrayListPractice{
   }
   public static ArrayList<String> mixLists (ArrayList<String> a, ArrayList<String> b){
     ArrayList<String> newone = new ArrayList<String>(a.size() + b.size());
-        newone.set(i, a.get(i));
-      }
-      for (int i = 1; i < (a.size() + b.size()); i+= 2){
-        newone.set(i, b.get(i));
-      }
+    int j = 0;
+    for(int i = 0; i < newone.size(); i+=2){
+      newone.add(i, a.get(j));
+      newone.add(i, b.get(j));
+      j++;
+    } return newone;
   }
 }
