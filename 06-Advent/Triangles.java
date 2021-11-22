@@ -5,14 +5,21 @@
      public static void main(String[] args) {
        int Linenum = 0;
        int counterrrr = 0;
+       boolean Ok = true;
          try {
              File file = new File("data");
              Scanner input = new Scanner(file);
                  while(input.hasNextInt()){
-                   if((input.nextInt() + input.nextInt()) < input.nextInt()){
+                 int a = input.nextInt();
+                 int b = input.nextInt();
+                 int c = input.nextInt();
+                   if((a + b) > c && (b + c) > a && (a+c) > b){
                      counterrrr++;
+                     Ok = true;
+                   } else {
+                   Ok = false;
                    }
-                 //System.out.println("Line "+Linenum+": "+input.nextInt()+" "+input.nextInt()+" "+input.nextInt()+" "+Ok);
+                 System.out.println("Line "+Linenum+": "+a+" "+b+" "+c+" "+Ok);
                  Linenum++;
              }
              input.close();
