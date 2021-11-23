@@ -2,9 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public NewReadFile{
 	public static void main(String[] args){
-	int counterrrr = 0; 
+	int counterrrr = 0;
 	 try {
 	 	File file = new File("data");
 	 	Scanner input = new Scanner(file);
@@ -28,5 +27,7 @@ public NewReadFile{
                      counterrrr++;
                      }
 	 	} System.out.println(counterrrr);
+	} catch(FileNotFoundException ex){
+		//File not found
 	}
 }
