@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+public class NewReadFile{
 	public static void main(String[] args){
 	int counterrrr = 0;
 	 try {
@@ -20,14 +20,15 @@ import java.util.Scanner;
 	 	if((a1 + b1) > c1 && (b1 + c1) > a1 && (a1+c1) > b1){
                      counterrrr++;
                      }
-                if((a2 + b2) > c2 && (b2 + c2) > a2 && (a2+c2) > b2{
+                if((a2 + b2) > c2 && (b2 + c2) > a2 && (a2+c2) > b2){
                      counterrrr++;
                      }
-                if((a3+ b) >  (b1 + c1) > a1 && (a1+c1) > b1){
+                if((a3+ b3) > c3 && (b3 + c3) > a3 && (a3+c3) > b3){
                      counterrrr++;
                      }
 	 	} System.out.println(counterrrr);
 	} catch(FileNotFoundException ex){
 		//File not found
 	}
+}
 }

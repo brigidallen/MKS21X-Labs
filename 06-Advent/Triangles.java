@@ -43,15 +43,19 @@
                     if((a2 + b2) > c2 && (b2 + c2) > a2 && (a2+c2) > b2){
                          counterrrr++;
                          }
-                    if((a3+ b3) >  (b1 + c1) > a1 && (a1+c1) > b1){
+                    if((a3+ b3) > c3 && (b3 + c3) > a3 && (a3+c3) > b3){
                          counterrrr++;
                          }
        } System.out.println(counterrrr);
      } catch(FileNotFoundException ex){
        //File not found
-     }
+     } return counterrrr;
     }
      public static void main(String[] args) {
-       System.out.println(Trianglefunction(args[0]) + " traingles. Spelling is hard");
+       if(args[1].equals("2")){
+         System.out.println(Triangles2(args[0]) + " traingles. Spelling is hard");
+       } else {
+         System.out.println(Trianglefunction(args[0]) + "triangles");
+       }
      }
  }
