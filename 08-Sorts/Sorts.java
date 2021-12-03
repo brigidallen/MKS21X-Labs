@@ -3,12 +3,35 @@ public class Sorts{
   public static void main(String[] args) {
     int[]Onedata = {2, 3, 1, 6, 0, 9, 4};
     int[]Twodata = {0, 1, 3, 2, 6, 4, 7, 20, 3};
-    bubbleSort(Onedata);
     System.out.println(Arrays.toString(Onedata));
+    selectionSort(Onedata);
+    System.out.println(Arrays.toString(Onedata));
+    int[]Randeqdata = new int[10];
+    for(int i = 0; i < Randeqdata.length; i++){
+      Randeqdata[i] = (int)(Math.random()*10);
+    }
+    System.out.println("Randomized data: " + Arrays.toString(Randeqdata));
+    selectionSort(Randeqdata);
+    System.out.println("Randomized sorted: " + Arrays.toString(Randeqdata));
+    int[]Rand2 = new int[10];
+    for (int i = 0; i < Rand2.length; i++){
+      Rand2[i] = (int)(Math.random()*10);
+    }
+    Arrays.sort(Rand2);
+    System.out.println("Array sort: " + Arrays.toString(Rand2));
+    selectionSort(Rand2);
+    System.out.println("selectionSort: " + Arrays.toString(Rand2));
+    int[]Rand2copy = new int[Rand2.length];
+    for(int i = 0; i < Rand2.length; i++){
+      Rand2copy[i] = Rand2[Rand2.length-(i+1)];
+    }
+    System.out.println(Arrays.toString(Rand2copy));
+    selectionSort(Rand2copy);
+    System.out.println(Arrays.toString(Rand2copy));
   }
   public static void bubbleSort(int[] data){
     int theend = data.length-1;
-    for(int j = 0; j < theend; j--){
+    for(int j = theend; j > 0; j--){
       for(int i = 0; i < data.length-1; i++){
         if(data[i] > data[i+1]){
           int temp = data[i];
@@ -17,5 +40,18 @@ public class Sorts{
         }
       }
     }
+  }
+  public static void selectionSort(int[]ary){
+    for(int start=0; start < ary.length; start++){
+      int c = start;
+      for(int i = start; i < ary.length; i++){
+        if(ary[i] < ary[c]){
+          c = i;
+        }
+      } int temporary = ary[start];
+      ary[start] = ary[c];
+      ary[c] = temporary;
+    }
+    System.out.println(Arrays.toString(ary));
   }
 }
