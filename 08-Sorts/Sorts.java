@@ -1,12 +1,12 @@
 import java.util.Arrays;
 public class Sorts{
   public static void main(String[] args) {
-    int[]Onedata = {2, 3, 1, 6, 0, 9, 4};
+    int[]Onedata = {4, 3, 2, 10, 12, 1, 5, 6};
     int[]Twodata = {0, 1, 3, 2, 6, 4, 7, 20, 3};
     //System.out.println(Arrays.toString(Onedata));
-    selectionSort(Onedata);
-    //System.out.println(Arrays.toString(Onedata));
-    int[]Randeqdata = new int[10];
+    insertionSort(Onedata);
+    System.out.println(Arrays.toString(Onedata));
+    /* int[]Randeqdata = new int[10];
     for(int i = 0; i < Randeqdata.length; i++){
       Randeqdata[i] = (int)(Math.random()*10);
     }
@@ -27,7 +27,7 @@ public class Sorts{
     }
     //System.out.println(Arrays.toString(Rand2copy));
     selectionSort(Rand2copy);
-    //System.out.println(Arrays.toString(Rand2copy));
+    //System.out.println(Arrays.toString(Rand2copy)); */
   }
   public static void bubbleSort(int[] data){
     int theend = data.length-1;
@@ -55,14 +55,18 @@ public class Sorts{
     //System.out.println(Arrays.toString(ary));
   }
   public static void insertionSort(int[]ary){
-    for(int i = 1; i < ary.length; i++){
-      int j = i-1;
-      while(ary[i] < ary[j] && j !=0){
-        j--;
-      } int subst = ary[i];
-      for(int k = j; k < i; k++){
-        ary[k] = ary[k+1];
-      } ary[j] = subst;
+    for(int green = 1; green < ary.length; green++){
+      System.out.println(Arrays.toString(ary));
+      int firstchecker = green;
+        while(firstchecker >=1 && ary[green] < ary[firstchecker-1]){
+        firstchecker--;
+        }
+      System.out.println(firstchecker);
+      int subst = ary[green];
+      for(int k = green; k > firstchecker; k--){
+        ary[k] = ary[k-1];
+      }
+     ary[firstchecker] = subst;
     }
   }
 }
