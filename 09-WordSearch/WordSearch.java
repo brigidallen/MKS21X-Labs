@@ -28,9 +28,21 @@ public class WordSearch{
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.
      */
-    /*public String toString(){
+    public String toString(){
+      String str = "";
+      for(int i = 0; i < data.length; i++){
+        for(int j = 0; j < data[i].length; j++){
+          str += data[i][j];
+          if(j < data[i].length-1){
+            str += ' ';
+          }
+        }
+        if(i < data.length-1){
+          str += '\n';
+        }
+      } return str;
     }
-    */
+
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
@@ -98,6 +110,20 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned.
      */
     public boolean addWordDiagonal(String word,int row, int col){
+      int j = col;
+      int letter = 0;
+      boolean figures = false;
+      if(data.length - row >= word.length() && data[0].length - col >= word.length()){
+        for(int i = row; i < row+word.length(); i++){
+          if(data[i][j] != '_'){
+            if(data[i][j] == word.charAt(letter)){
+              figures = true;
+            }
+          } else {
+            figures = true;
+          } letter ++;
+          j ++;
+        }
+      } return figures;
     }
-
 }
