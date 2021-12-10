@@ -57,18 +57,20 @@ public class WordSearch{
      */
     public boolean addWordHorizontal(String word,int row, int col){
       int letter = 0;
-      boolean figures = false;
+      boolean figures = true;
       if(data[0].length - col >= word.length()){
         for(int i = col; i < col + word.length(); i++){
           if(data[row][i] != '_'){
-            if(data[row][i] == word.charAt(letter)){
-              figures = true;
+            if(data[row][i] != word.charAt(letter)){
+              return false;
             }
-          } else{
-            figures = true;
           } letter++;
-        }
-      } return figures;
+        } if(figures){
+          for(int m = col; m < col + word.length(); m++){
+            data[row][m] = word.charAt(m - col);
+          }
+        }  return figures;
+      } return false;
     }
 
 
@@ -85,18 +87,20 @@ public class WordSearch{
      */
     public boolean addWordVertical(String word,int row, int col){
       int letter = 0;
-      boolean figures = false;
+      boolean figures = true;
       if(data.length - row >= word.length()){
         for(int i = row; i < row + word.length(); i++){
           if(data[i][col] != '_'){
-            if(data[i][col] == word.charAt(letter)){
-              figures = true;
+            if(data[i][col] != word.charAt(letter)){
+              return false;
             }
-          } else {
-            figures = true;
           } letter++;
-        }
-      } return figures;
+        } if(figures){
+          for(int m = row; m < row + word.length(); m++){
+            data[m][col] = word.charAt(m - row);
+          }
+        } return figures;
+      } return false;
     }
 
     /**Attempts to add a given word to the specified position of the WordGrid.
@@ -112,18 +116,23 @@ public class WordSearch{
     public boolean addWordDiagonal(String word,int row, int col){
       int j = col;
       int letter = 0;
-      boolean figures = false;
+      boolean figures = true;
       if(data.length - row >= word.length() && data[0].length - col >= word.length()){
         for(int i = row; i < row+word.length(); i++){
           if(data[i][j] != '_'){
-            if(data[i][j] == word.charAt(letter)){
-              figures = true;
+            if(data[i][j] != word.charAt(letter)){
+              return false;
             }
-          } else {
-            figures = true;
           } letter ++;
-          j ++;
-        }
-      } return figures;
+            j++;
+        } int j2 = col;
+        if(figures){
+          for(int m = row; m < row + word.length(); m++){
+            data[m][j2] = word.charAt(m - row);
+            j2++;
+          }
+        } return figures;
+      } return false;
     }
+
 }
