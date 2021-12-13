@@ -134,5 +134,31 @@ public class WordSearch{
         } return figures;
       } return false;
     }
-
+    public boolean addWord(String word, int row, int col, int dr, int dc){
+    if(row >=0 && row < data.length && col >=0 && col < data[0].length && (dr != 0 || dc !=0)){
+    	if((row + (word.length()-1) * dr) >= 0 && (row + (word.length()-1) * dr) < data.length && (col + (word.length()-1) * dc) >= 0 && (col + (word.length()-1) * dc) < data[0].length){
+    		for(int i = 0; i < word.length(); i++){
+  		    char Thisone = data[row + i * dr][col + i * dc];
+ 		     if(Thisone != '_'){
+ 		     	if(word.charAt(i) != Thisone){
+				return false; 		     	
+ 		     	}
+ 		     }
+  		  }
+    		}
+    	} return false; 
+    	for(int i = 0; i < word.length
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
