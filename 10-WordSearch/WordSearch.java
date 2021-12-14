@@ -34,7 +34,8 @@ public class WordSearch{
           addWord(newword, i, j, 1, -1);
         } else if(addWord(newword, i, j, -1, 1)){
           addWord(newword, i, j, -1, 1);
-        }
+        } // rng.nextInt(3)-1
+        //rng.nextInt()
       }
     }
   }
@@ -131,9 +132,17 @@ public class WordSearch{
   }
   public static void main(String[] args) {
     if(args.length == 5){
-      WordSearch hello = new WordSearch(args[0], args[1], args[2], args[4]);
+      WordSearch hello = new WordSearch(args[0], args[1], args[2], Integer.parseInt(args[4]));
+      if(args[3] == 0){
+        hello.fillInRandomLetters();
+      }
+      System.out.println(hello.toString());
     } else {
       WordSearch hii = new WordSearch(args[0], args[1], args[2]);
+      if(args[3] == 0){
+        hii.fillInRandomLetters();
+      }
+      System.out.println(hii.toString());
     }
   }
 }
