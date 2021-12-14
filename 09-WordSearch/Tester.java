@@ -9,6 +9,8 @@ public class Tester{
     System.out.println(abcd.toString());
     System.out.println(abcd.addWordDiagonal("HEY", 3, 4));
     System.out.println(abcd.toString());
+    System.out.println(abcd.addWord("QUEST", 4, 8, -1, 0));
+    System.out.println(abcd.toString());
     /*System.out.println(abcd.addWordHorizontal("Meat", 0, 6));
     System.out.println(abcd.addWordVertical("Meat", 6, 0));
     System.out.println(abcd.addWordVertical("Meat", 7, 0));
