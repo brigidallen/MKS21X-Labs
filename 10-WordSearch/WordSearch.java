@@ -7,10 +7,36 @@ public class WordSearch{
   int seed;
 
   //assume a rectangular grid
+  private void fillInRandomLetters(){
+    for(int i = 0; i < grid.length; i++){
+      for(int j = 0; i < grid[0].length; j++){
+        if(grid[i][j] == '_'){
+          grid[i][j] = (char)(rng.nextInt(26) + 'a');
+  }
+
   private void addAllWords(String filename){
     ArrayList<String> wordsToAdd = loadWordsFromFile(filename);
     int wordnum = (int)(Math.random() * (wordsToAdd.size()-1));
-
+    String newword = wordsToAdd.get(wordnum).toUpperCase;
+    for(int i = 0; i < grid.length; i++){
+      for(int j = 0; j < grid[0].length; j++){
+        if(addWord(newword, i, j, 0, 1)){
+          addWord(newword, i, j, 0, 1);
+        } else if (addWord(newword, i, j, 1, 0)){
+          addWord(newword, i, j, 1, 0);
+        } else if(addWord(newword, i, j, 1, 1)){
+          addWord(newword, i, j, 1, 1);
+        } else if(addWord(newword, i, j, -1, 0)){
+          addWord(newword, i, j, -1, 0);
+        } else if(addWord(newword, i, j, 0, -1)){
+          addWord(newword, i, j, 0, -1);
+        } else if(addWord(newword, i, j, 1, -1)){
+          addWord(newword, i, j, 1, -1);
+        } else if(addWord(newword, i, j, -1, 1)){
+          addWord(newword, i, j, -1, 1);
+        }
+      }
+    }
   }
 
   public WordSearch(int rows,int cols, String fileName){
@@ -102,5 +128,12 @@ public class WordSearch{
     }
     ans += "\nseed: "+seed;
     return ans;
+  }
+  public static void main(String[] args) {
+    if(args.length == 5){
+      WordSearch hello = new WordSearch(args[0], args[1], args[2], args[4]);
+    } else {
+      WordSearch hii = new WordSearch(args[0], args[1], args[2]);
+    }
   }
 }
