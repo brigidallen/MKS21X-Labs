@@ -12,31 +12,23 @@ public class WordSearch{
       for(int j = 0; i < grid[0].length; j++){
         if(grid[i][j] == '_'){
           grid[i][j] = (char)(rng.nextInt(26) + 'a');
+          }
+         }
+      }
   }
 
   private void addAllWords(String filename){
     ArrayList<String> wordsToAdd = loadWordsFromFile(filename);
-    int wordnum = (int)(Math.random() * (wordsToAdd.size()-1));
-    String newword = wordsToAdd.get(wordnum).toUpperCase;
-    for(int i = 0; i < grid.length; i++){
-      for(int j = 0; j < grid[0].length; j++){
-        if(addWord(newword, i, j, 0, 1)){
-          addWord(newword, i, j, 0, 1);
-        } else if (addWord(newword, i, j, 1, 0)){
-          addWord(newword, i, j, 1, 0);
-        } else if(addWord(newword, i, j, 1, 1)){
-          addWord(newword, i, j, 1, 1);
-        } else if(addWord(newword, i, j, -1, 0)){
-          addWord(newword, i, j, -1, 0);
-        } else if(addWord(newword, i, j, 0, -1)){
-          addWord(newword, i, j, 0, -1);
-        } else if(addWord(newword, i, j, 1, -1)){
-          addWord(newword, i, j, 1, -1);
-        } else if(addWord(newword, i, j, -1, 1)){
-          addWord(newword, i, j, -1, 1);
-        } // rng.nextInt(3)-1
-        //rng.nextInt()
-      }
+    for(int i = 0; i < wordsToAdd.size(); i++){
+	    int wordnum = (int)(Math.random() * (wordsToAdd.size()-1));
+	    String newword = wordsToAdd.get(wordnum).toUpperCase;
+	    for(int i = 0; i < 10; i++){
+	    	if(addWord(newword, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3)-1, rng.nextInt(3)-1)){
+	    	addWord(newword, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3)-1, rng.nextInt(3)-1);
+	    	wordsToAdd.remove(newword);
+	    	break;
+	    }
+    	}
     }
   }
 
@@ -131,7 +123,7 @@ public class WordSearch{
     return ans;
   }
   public static void main(String[] args) {
-    if(args.length == 5){
+    /* if(args.length == 5){
       WordSearch hello = new WordSearch(args[0], args[1], args[2], Integer.parseInt(args[4]));
       if(args[3] == 0){
         hello.fillInRandomLetters();
@@ -143,6 +135,7 @@ public class WordSearch{
         hii.fillInRandomLetters();
       }
       System.out.println(hii.toString());
-    }
+    } */
+    System.out.println(addAllWords(args[0]));
   }
 }
