@@ -19,14 +19,14 @@ public class WordSearch{
 
   private void addAllWords(String filename){
     ArrayList<String> wordsToAdd = loadWordsFromFile(filename);
-    int k = 0;
     for(int i = 0; i < wordsToAdd.size(); i++){
-	    int wordnum = (int)(rng.nextInt(wordsToAdd.size()));
+      int k = 0;
+	    int wordnum = rng.nextInt(wordsToAdd.size());
 	    String newword = (wordsToAdd.get(wordnum)).toUpperCase();
-	    while(wordsToAdd.contains(newword) && k < 30){
+	    while(wordsToAdd.contains(newword) && k < 100){
 	    	if(addWord(newword, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3)-1, rng.nextInt(3)-1)){
-	    	addWord(newword, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3)-1, rng.nextInt(3)-1);
 	    	wordsToAdd.remove(newword);
+        //addWord(newword, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3)-1, rng.nextInt(3)-1);
 	    	k++;
       }
     }
