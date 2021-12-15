@@ -9,28 +9,29 @@ public class WordSearch{
   //assume a rectangular grid
   private void fillInRandomLetters(){
     for(int i = 0; i < grid.length; i++){
-      for(int j = 0; i < grid[0].length; j++){
+      for(int j = 0; j < grid[0].length; j++){
         if(grid[i][j] == '_'){
-          grid[i][j] = (char)(rng.nextInt(26) + 'a');
-          }
-         }
+          grid[i][j] = (char)(rng.nextInt(26) + 'A');
+        }
       }
+    }
   }
 
   private void addAllWords(String filename){
     ArrayList<String> wordsToAdd = loadWordsFromFile(filename);
+    int k = 0;
     for(int i = 0; i < wordsToAdd.size(); i++){
-	    int wordnum = (int)(Math.random() * (wordsToAdd.size()-1));
-	    String newword = wordsToAdd.get(wordnum).toUpperCase;
-	    for(int i = 0; i < 10; i++){
+	    int wordnum = (int)(rng.nextInt(wordsToAdd.size()));
+	    String newword = (wordsToAdd.get(wordnum)).toUpperCase();
+	    while(wordsToAdd.contains(newword) && k < 30){
 	    	if(addWord(newword, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3)-1, rng.nextInt(3)-1)){
 	    	addWord(newword, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3)-1, rng.nextInt(3)-1);
 	    	wordsToAdd.remove(newword);
-	    	break;
-	    }
-    	}
+	    	k++;
+      }
     }
   }
+}
 
   public WordSearch(int rows,int cols, String fileName){
     rng = new Random();
@@ -123,19 +124,22 @@ public class WordSearch{
     return ans;
   }
   public static void main(String[] args) {
-    /* if(args.length == 5){
-      WordSearch hello = new WordSearch(args[0], args[1], args[2], Integer.parseInt(args[4]));
-      if(args[3] == 0){
+    int rows = Integer.parseInt(args[0]);
+    int cols = Integer.parseInt(args[1]);
+    String filename = args[2];
+    int mode = Integer.parseInt(args[3]);
+    if(args.length == 5){
+      WordSearch hello = new WordSearch(rows, cols, filename, Integer.parseInt(args[4]));
+      if(mode == 0){
         hello.fillInRandomLetters();
       }
       System.out.println(hello.toString());
     } else {
-      WordSearch hii = new WordSearch(args[0], args[1], args[2]);
-      if(args[3] == 0){
+      WordSearch hii = new WordSearch(rows, cols, filename);
+      if(mode == 0){
         hii.fillInRandomLetters();
       }
       System.out.println(hii.toString());
-    } */
-    System.out.println(addAllWords(args[0]));
+    }
   }
 }
