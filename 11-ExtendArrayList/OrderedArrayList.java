@@ -8,7 +8,8 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
   @Override
   public boolean add(T element){
-    return super.add(whereToPlace(element), element);
+    super.add(whereToPlace(element), element);
+    return true;
   }
   @Override
   public void add(int index, T element){
@@ -17,16 +18,18 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   private int whereToPlace(T value){
     if(size() > 0){
       for(int i = 0; i < size(); i++){
+        System.out.println(value.toString() + get(i) +value.compareTo(get(i)));
         if(value.compareTo(get(i)) < 0){
           return i;
-        }
+        } return size();
       }
     } return 0;
   }
   @Override
   public T set(int index, T element){
     remove(index);
-    return super.add(whereToPlace(element), element);
+    super.add(whereToPlace(element), element);
+    return element;
   }
   public static void main(String[] args) {
     OrderedArrayList<String> newbie = new OrderedArrayList<String>(10);
@@ -35,6 +38,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     newbie.add("Okay");
     newbie.add("Toomuch");
     newbie.add(2, "Bro");
+    newbie.add(4, "Why");
     System.out.println(newbie);
   }
 }
