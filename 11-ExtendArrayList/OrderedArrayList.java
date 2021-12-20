@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class OrderedArrayList<T> extends NoNullArrayList<T>{
   public OrderedArrayList(){
     super();
@@ -30,7 +31,12 @@ public class OrderedArrayList<T> extends NoNullArrayList<T>{
     super.add(whereToPlace(element), element);
   }
   public static void main(String[] args) {
-    OrderedArrayList newbie = new OrderedArrayList(10);
-
+    OrderedArrayList<String> newbie = new OrderedArrayList<String>(10);
+    newbie.add("Moo");
+    newbie.add("Hello");
+    newbie.add("Okay");
+    newbie.add("Toomuch");
+    newbie.add(2, "Bro");
+    System.out.println(newbie);
   }
 }
