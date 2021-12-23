@@ -5,7 +5,7 @@ public class Sorts{
     int[]Twodata = {0, 1, 3, 2, 6, 4, 7, 20, 3};
     //System.out.println(Arrays.toString(Onedata));
     insertionSort(Onedata);
-    System.out.println(Arrays.toString(Onedata));
+    //System.out.println(Arrays.toString(Onedata));
     /* int[]Randeqdata = new int[10];
     for(int i = 0; i < Randeqdata.length; i++){
       Randeqdata[i] = (int)(Math.random()*10);
@@ -56,12 +56,12 @@ public class Sorts{
   }
   public static void insertionSort(int[]ary){
     for(int green = 1; green < ary.length; green++){
-      System.out.println(Arrays.toString(ary));
+      //System.out.println(Arrays.toString(ary));
       int firstchecker = green;
         while(firstchecker >=1 && ary[green] < ary[firstchecker-1]){
         firstchecker--;
         }
-      System.out.println(firstchecker);
+      //System.out.println(firstchecker);
       int subst = ary[green];
       for(int k = green; k > firstchecker; k--){
         ary[k] = ary[k-1];
