@@ -16,12 +16,14 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     super.add(whereToPlace(element), element);
   }
   private int whereToPlace(T value){
-    if(size() > 0){
-      for(int i = 0; i < size(); i++){
-        System.out.println(value.toString() + get(i) +value.compareTo(get(i)));
-        if(value.compareTo(get(i)) < 0){
-          return i;
-        } return size();
+    if(value == null){
+      if(size() > 0){
+        for(int i = 0; i < size(); i++){
+          System.out.println(value.toString() + get(i) +value.compareTo(get(i)));
+          if(value.compareTo(get(i)) < 0){
+            return i;
+          } return size();
+        }
       }
     } return 0;
   }
@@ -39,6 +41,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     newbie.add("Toomuch");
     newbie.add(2, "Bro");
     newbie.add(4, "Why");
+    newbie.add(null);
     System.out.println(newbie);
   }
 }
