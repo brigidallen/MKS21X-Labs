@@ -20,14 +20,24 @@ public class Wizard extends Adventurer{
     int damage = (int)(Math.random()*10)+1;
     other.applyDamage(damage);
     setMagic(getMagic()+1);
-    System.out.println(this + " attacked " + other + " for " + damage + " damage!");
+    System.out.println(this + " used their " + getPower() + " powers against "+ other + " for " + damage + " damage!");
   }
 
   public void specialAttack(Damageable other){
-    int damage = (int)(Math.random()*10)*getMagic()+1;
-    other.applyDamage(damage);
-    System.out.println(this + " unleashes his fury upon "
-             + other + " for " + damage + " damage! ");
+    if(getMagic() >= 5){
+      int damage = (int)((Math.random()*10)*(getMagic()+1));
+      other.applyDamage(damage);
+      System.out.println(this + " unleashed their fury upon "
+               + other + " for " + damage + " damage! ");
+      setMagic(getMagic() - 5);
+    }
+    else {
+      System.out.println("Magic not strong enough!");
+      attack(other);
+    }
+  }
+  public String getPower(){
+    return power;
   }
   public int getMagic(){
     return magic;
