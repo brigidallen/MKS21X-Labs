@@ -1,22 +1,22 @@
 public class Text{
   /*Base colors*/
-  private static int BLACK = 30;
-  private static int RED = 31;
-  private static int GREEN = 32;
-  private static int YELLOW = 33;
-  private static int BLUE = 34;
-  private static int MAGENTA = 35;
-  private static int CYAN = 36;
-  private static int WHITE = 37;
+  public static final int BLACK = 30;
+  public static final int RED = 31;
+  public static final int GREEN = 32;
+  public static final int YELLOW = 33;
+  public static final int BLUE = 34;
+  public static final int MAGENTA = 35;
+  public static final int CYAN = 36;
+  public static final int WHITE = 37;
 
   /*Text modifiers to be ADDED to a color*/
-  private static int BACKGROUND = 10;
-  private static int BRIGHT = 60;
+  public static final int BACKGROUND = 10;
+  public static final int BRIGHT = 60;
 
   /*Text modifiers that are separate from color*/
-  private static int BOLD = 1;
-  private static int UNDERLINE = 4;
-  private static int INVERTED = 7;
+  public static final int BOLD = 1;
+  public static final int UNDERLINE = 4;
+  public static final int INVERTED = 7;
 
   /*Reset colors*/
   public static void reset(){
