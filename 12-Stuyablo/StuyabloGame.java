@@ -15,9 +15,9 @@ public class StuyabloGame{
     int colnum = (WIDTH - 6)/4;
     for(int i = 0; i < party.size(); i++){
       Text.go(startRow, i*colnum);
-      System.out.print(party.getName(i));
+      System.out.print(party.get(i).getName());
       Text.go(startRow+1, i*colnum);
-      System.out.print(party.getHP(i));
+      System.out.print(party.get(i).getHP());
       System.out.println("  ");
     }
   }
@@ -52,10 +52,14 @@ public class StuyabloGame{
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 3 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
+    Adventurer Maddie = new Warrior("Maddie", 40);
+    Adventurer Brett = new Warrior("Brett", 50);
+    Adventurer Bethelda = new Wizard("Bethelda", 30);
+    Adventurer Ramona = new Wizard("Ramonda", 60);
+    party.add(Maddie);
+    party.add(Brett);
+    party.add(Bethelda);
+    party.add(Ramona);
     //Main loop
     boolean partyTurn = false;
     int whichPlayer = 0;
