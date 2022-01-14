@@ -14,9 +14,9 @@ public class StuyabloGame{
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
     int colnum = (WIDTH - 6)/4;
     for(int i = 0; i < party.size(); i++){
-      Text.go(startRow, i*colnum);
+      Text.go(startRow, i*colnum+3);
       System.out.print(party.get(i).getName());
-      Text.go(startRow+1, i*colnum);
+      Text.go(startRow+1, i*colnum+3);
       System.out.print(party.get(i).getHP());
       System.out.println("  ");
     }
@@ -28,10 +28,11 @@ public class StuyabloGame{
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
+  //Adventurers you control:
+
 
   public static void drawScreen(){
     Border.Border();
-    drawParty();
   }
 
 
@@ -41,25 +42,23 @@ public class StuyabloGame{
     Text.clear();
     Text.go(1,1);
 
-
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-    //Adventurers you control:
     //Make an ArrayList of Adventurers and add 3 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    Adventurer Maddie = new Warrior("Maddie", 40);
-    Adventurer Brett = new Warrior("Brett", 50);
-    Adventurer Bethelda = new Wizard("Bethelda", 30);
-    Adventurer Ramona = new Wizard("Ramonda", 60);
+    Adventurer Maddie = new Warrior("Maddie", "You b word", 30, 50, 60);
+    Adventurer Brett = new Warrior("Brett", "Bro I swear to god", 40, 50, 80);
+    Adventurer Bethelda = new Wizard("Bethelda", "Math", 70, 90, 30);
+    Adventurer Ramona = new Wizard("Ramona", "Rock", 60, 70, 60);
     party.add(Maddie);
     party.add(Brett);
     party.add(Bethelda);
     party.add(Ramona);
+
     //Main loop
     boolean partyTurn = false;
     int whichPlayer = 0;
@@ -117,13 +116,14 @@ public class StuyabloGame{
       }
 
       //display current state of all Adventurers
-      drawParty(party,1);
+      drawParty(party,3);
       drawParty(enemies,HEIGHT-4);
 
       //Draw the prompt
       Text.reset();
       Text.go(HEIGHT+1,1);
       Text.showCursor();
+      System.out.println("What just happened");
       System.out.print(">");
       //Read user input
       input = in.nextLine();

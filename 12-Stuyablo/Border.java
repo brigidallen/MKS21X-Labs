@@ -14,6 +14,7 @@ public class Border{
       System.out.print("\u001b[" + row + ";" + col + "f");
   }
   public static void Border(){
+    Text.go(1, 1);
     for(int i = 0; i < 80; i++){
       System.out.print("_");
     } System.out.println("");
@@ -29,22 +30,22 @@ public class Border{
     for(int i = 0; i < 80; i++){
       System.out.print("_");
     } System.out.println("");
-    Text.go(3, 1);
-    for(int i = 3; i < 30; i++){
+    Text.go(2, 1);
+    for(int i = 2; i < 30; i++){
       System.out.println("|");
     }
-    Text.go(3, 3);
-    for(int i = 3; i < 30; i++){
-      Text.go(i, 3);
+    Text.go(2, 2);
+    for(int i = 2; i < 30; i++){
+      Text.go(i, 2);
       System.out.println("|");
     }
-    Text.go(3, 78);
-    for(int i = 3; i < 30; i++){
-      Text.go(i, 78);
+    Text.go(2, 79);
+    for(int i = 2; i < 30; i++){
+      Text.go(i, 79);
       System.out.println("|");
     }
-    Text.go(3, 80);
-    for(int i = 3; i < 30; i++){
+    Text.go(2, 80);
+    for(int i = 2; i < 30; i++){
       Text.go(i, 80);
       System.out.println("|");
     }
